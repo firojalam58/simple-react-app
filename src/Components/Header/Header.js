@@ -4,6 +4,11 @@ import { Link } from 'react-router-dom';
 import './Header.css'
 import images  from './images/dark-logo.png'
 const Header = () => {
+  const handleGoogleSignin = ()=>{
+
+  }
+
+
     return (
             
    <div>
@@ -19,12 +24,10 @@ const Header = () => {
                         <Link className='link' to={'/course'}>Courses</Link>
                         <Link className='link' to={'/contract'}>Contract</Link>
                         <Link className='link btn btn-primary' to={'/login'}>Login</Link>
-                        <Link className='link btn btn-primary' to={'/register'}>Register</Link>
+                        <Link onClick={handleGoogleSignin} className='link btn btn-primary' to={'/register'}>Register</Link>
                     </Nav>
                     <Nav>
                         
-
-
                     </Nav>
                 </Navbar.Collapse>
             </Container>
