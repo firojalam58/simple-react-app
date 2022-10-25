@@ -1,6 +1,14 @@
 
+
+
+
 .link{
     text-decoration: none;
     margin: 10px;
     color: #3f3a64;
+    font-size: 24px;
+}
+
+.link:hover{
+    color: #20AD97;
 }
