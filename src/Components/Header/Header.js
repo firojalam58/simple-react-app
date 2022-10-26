@@ -32,7 +32,7 @@ const Header = () => {
                         <Link className='link' to={'/blog'}>Blog</Link>
                         <Link className='link' to={'/course'}>Courses</Link>
                         
-                        <Link onClick={handleGoogleSignin} className='link btn btn-primary' to={'/register'}>Register</Link>
+                       
                         <>
                                 {user?.photoURL ?
                                     <Image
@@ -46,7 +46,10 @@ const Header = () => {
                             </>
                        { user?.email ?
                         <button onClick={handleLogout} className='btn btn-primary'>Logout</button>
-                        : <Link className='link btn btn-primary' to={'/login'}>Login</Link>
+                        : <>
+                        <Link className='link btn btn-primary' to={'/login'}>Login</Link>
+                        <Link onClick={handleGoogleSignin} className='link btn btn-primary' to={'/register'}>Register</Link>
+                        </> 
                        }
                     </Nav>
                     <Nav>

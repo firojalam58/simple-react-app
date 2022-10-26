@@ -4,10 +4,11 @@ import Form from 'react-bootstrap/Form';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 const Login = () => {
-    const {providerLogin,user} = useContext(AuthContext)
+    const {providerLogin} = useContext(AuthContext)
 
-    const navigate = useNavigate()
-    const location = useLocation()
+    const navigate = useNavigate();
+    
+    const location = useLocation();
 
     const from = location.state?.from?.pathname || '/';
 
@@ -22,8 +23,7 @@ const Login = () => {
       const user = res.user;
       console.log(user);
       form.reset();
-      if(user)
-      {
+      if(user){
         navigate(from,{replace:true})
       }
     })

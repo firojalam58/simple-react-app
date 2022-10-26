@@ -9,6 +9,8 @@ import PrivateRoute from './Components/Private/PrivateRoute';
 import About from './Components/About/About';
 import Blog from './Components/Blog/Blog';
 import Course from './Components/Course/Course';
+import Alldetails from './Components/AllDetails/Alldetails';
+import CourseDetails from './Components/CourseDetails/CourseDetails';
 
 function App() {
   const router = createBrowserRouter([
@@ -33,7 +35,16 @@ function App() {
           element:<Course></Course>
           
         },
-        
+        {
+          path: '/courses/:id',
+          element:<CourseDetails></CourseDetails>,
+          loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`)
+      },
+      {
+          path: '/allCourses/:id',
+          element: <PrivateRoute> <Alldetails></Alldetails></PrivateRoute>,
+          loader: ({ params }) => fetch(`http://localhost:5000/allcourses/${params.id}`)
+      },
         {
           path:'/login',
           element:<Login></Login>
