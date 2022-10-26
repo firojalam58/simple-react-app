@@ -5,8 +5,15 @@ import { FaGithub, FaGoogle } from 'react-icons/fa';
 import Form from 'react-bootstrap/Form';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 const Register = () => {
-  const {register} = useContext(AuthContext)
+  const {register,googleLogin} = useContext(AuthContext)
   
+  const handleGoogle = () =>{
+    googleLogin()
+    .then ( () =>{})
+    .catch ( error => console.error(error))
+  }
+
+
   const handleSubmit = event =>{
     event.preventDefault();
     const form = event.target;
@@ -44,8 +51,8 @@ const Register = () => {
       <Button variant="primary" type="submit">
         Submit
       </Button>
-      <button className='btn btn-primary mx-5'><FaGoogle></FaGoogle> Google</button>
-      <button className='btn btn-primary '><FaGithub></FaGithub> Google</button>
+      <button onClick={handleGoogle} className='btn btn-success mx-5'><FaGoogle></FaGoogle> Google</button>
+      <button className='btn btn-success '><FaGithub></FaGithub> Google</button>
     </Form>
     <div>
         

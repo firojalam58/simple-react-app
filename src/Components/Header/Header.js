@@ -1,6 +1,8 @@
 import React from 'react';
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import { useContext } from 'react';
+import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../AuthProvider/AuthProvider';
 import './Header.css'
 import images  from './images/dark-logo.png'
 const Header = () => {
@@ -8,6 +10,12 @@ const Header = () => {
 
   }
 
+  const {user,logout} = useContext(AuthContext)
+  const handleLogout = () =>{
+        logout ()
+        .then ( () =>{})
+        .catch ( error => console.error(error))
+  }
 
     return (
             
@@ -22,9 +30,15 @@ const Header = () => {
                         <Link className='link' to={'/about'}>About Us</Link>
                         <Link className='link' to={'/blog'}>Blog</Link>
                         <Link className='link' to={'/course'}>Courses</Link>
-                        <Link className='link' to={'/contract'}>Contract</Link>
-                        <Link className='link btn btn-primary' to={'/login'}>Login</Link>
+                        
                         <Link onClick={handleGoogleSignin} className='link btn btn-primary' to={'/register'}>Register</Link>
+                        {
+                            user?.email && <span>Welcome {user.email}</span>
+                        }
+                       { user?.email ?
+                        <button onClick={handleLogout} className='btn btn-primary'>Logout</button>
+                        : <Link className='link btn btn-primary' to={'/login'}>Login</Link>
+                       }
                     </Nav>
                     <Nav>
                         
