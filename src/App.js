@@ -31,7 +31,9 @@ function App() {
         {
           path:'/course',
           element:<Course></Course>
+          
         },
+        
         {
           path:'/login',
           element:<Login></Login>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useContext } from 'react';
-import { Button, Container, Nav, Navbar } from 'react-bootstrap';
+import { Image, Container, Nav, Navbar } from 'react-bootstrap';
+import { FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import './Header.css'
@@ -32,9 +33,17 @@ const Header = () => {
                         <Link className='link' to={'/course'}>Courses</Link>
                         
                         <Link onClick={handleGoogleSignin} className='link btn btn-primary' to={'/register'}>Register</Link>
-                        {
-                            user?.email && <span>Welcome {user.email}</span>
-                        }
+                        <>
+                                {user?.photoURL ?
+                                    <Image
+                                        style={{ height: '50px', width:'50px' }}
+                                        roundedCircle
+                                        src={user?.photoURL}>
+                                    </Image>
+                                    : <FaUser></FaUser>
+                                }
+
+                            </>
                        { user?.email ?
                         <button onClick={handleLogout} className='btn btn-primary'>Logout</button>
                         : <Link className='link btn btn-primary' to={'/login'}>Login</Link>

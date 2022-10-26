@@ -1,20 +1,31 @@
 import React, { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 const Login = () => {
-    const {providerlogin} = useContext(AuthContext)
+    const {providerLogin,user} = useContext(AuthContext)
+
+    const navigate = useNavigate()
+    const location = useLocation()
+
+    const from = location.state?.from?.pathname || '/';
+
 
   const handleSubmit = event =>{
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    providerlogin(email,password)
+    providerLogin(email,password)
     .then (res =>{
       const user = res.user;
       console.log(user);
       form.reset();
+      if(user)
+      {
+        navigate(from,{replace:true})
+      }
     })
     .catch (error =>{
       console.error(error)
