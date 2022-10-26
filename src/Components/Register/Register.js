@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
-import { FaGoogle } from 'react-icons/fa';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 import Form from 'react-bootstrap/Form';
 import { AuthContext } from '../AuthProvider/AuthProvider';
@@ -44,7 +44,8 @@ const Register = () => {
       <Button variant="primary" type="submit">
         Submit
       </Button>
-      <button className='btn btn-primary'><FaGoogle></FaGoogle> Google</button>
+      <button className='btn btn-primary mx-5'><FaGoogle></FaGoogle> Google</button>
+      <button className='btn btn-primary '><FaGithub></FaGithub> Google</button>
     </Form>
     <div>
         
