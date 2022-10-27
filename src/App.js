@@ -43,12 +43,12 @@ function App() {
         {
           path: '/courses/:id',
           element:<CoursesData></CoursesData>,
-          loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`)
+          loader: ({ params }) => fetch(`https://course-server-liart.vercel.app/courses/${params.id}`)
       },
       {
           path: '/allCourses/:id',
           element: <PrivateRoute> <Alldetails></Alldetails></PrivateRoute>,
-          loader: ({ params }) => fetch(`http://localhost:5000/allcourses/${params.id}`)
+          loader: ({ params }) => fetch(`https://course-server-liart.vercel.app/allcourses/${params.id}`)
       },
         {
           path:'/login',

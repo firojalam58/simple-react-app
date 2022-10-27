@@ -5,6 +5,8 @@ import { FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import LeftSide from '../LeftSide/LeftSide';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
 import './Header.css'
 import images  from './images/dark-logo.png'
 const Header = () => {
@@ -62,6 +64,7 @@ const Header = () => {
                                         style={{ height: '50px', width:'50px' }}
                                         roundedCircle
                                         src={user?.photoURL}>
+                                          
                                     </Image>
                                     : <FaUser></FaUser>
                                 }

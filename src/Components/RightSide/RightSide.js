@@ -8,7 +8,7 @@ import './RightSide.css'
 const RightSide = () => {
     const [coursesList,setCoursesList] = useState([])
     useEffect( ()=>{
-        fetch('http://localhost:5000/courses')
+        fetch('https://course-server-liart.vercel.app/courses')
         .then (res => res.json())
         .then (data => setCoursesList(data))
     },[])
