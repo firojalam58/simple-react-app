@@ -11,6 +11,7 @@ import Blog from './Components/Blog/Blog';
 import Course from './Components/Course/Course';
 import Alldetails from './Components/AllDetails/Alldetails';
 import CourseDetails from './Components/CourseDetails/CourseDetails';
+import CoursesData from './Components/CoursesData/CoursesData';
 
 function App() {
   const router = createBrowserRouter([
@@ -37,7 +38,7 @@ function App() {
         },
         {
           path: '/courses/:id',
-          element:<CourseDetails></CourseDetails>,
+          element:<CoursesData></CoursesData>,
           loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`)
       },
       {

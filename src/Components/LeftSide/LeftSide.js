@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
+import './LeftSide.css'
 
 const LeftSide = () => {
     const [coursesList, setCoursesList] = useState([]);
@@ -20,7 +20,7 @@ const LeftSide = () => {
                 {
                     coursesList.map(category => <p
                         key={category.id}>
-                        <Link to={`/courses/${category.id}`}>{category.name}</Link>
+                        <Link className='links' to={`/courses/${category.id}`}><button className='btn btn-success'>{category.name}</button></Link>
                     </p>)
                 }
             </div>
