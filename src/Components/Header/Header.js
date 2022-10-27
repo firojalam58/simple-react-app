@@ -4,6 +4,7 @@ import { Image, Container, Nav, Navbar } from 'react-bootstrap';
 import { FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
+import LeftSide from '../LeftSide/LeftSide';
 import './Header.css'
 import images  from './images/dark-logo.png'
 const Header = () => {
@@ -29,6 +30,7 @@ const Header = () => {
                     <Nav className="m-auto">
                         <Link className='link' to={'/'}>Home</Link>
                         <Link className='link' to={'/about'}>About Us</Link>
+                        <Link className='link' to={'/faq'}>Faq</Link>
                         <Link className='link' to={'/blog'}>Blog</Link>
                         <Link className='link' to={'/course'}>Courses</Link>
                         
@@ -53,7 +55,9 @@ const Header = () => {
                        }
                     </Nav>
                     <Nav>
-                        
+                    <div className='d-lg-none'>
+                        <LeftSide></LeftSide>
+                    </div>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { Button, Card, Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+
 import './RightSide.css'
 
 const RightSide = () => {
@@ -15,21 +16,23 @@ const RightSide = () => {
     return (
         <div>
         <h2>Our Courses: {coursesList.length}Items</h2>
-        <div>
+        <div className='row row-cols-lg-3 g-40'>
             {
                 coursesList.map(category => <p
                     key={category.id}
 
                 >
+                    
                     <Row>
                         <Col>
-                            <Card style={{ width: '18rem' }}>
-                                <Card.Img variant="top" src={category.image_url} />
+                            <Card style={{  height: '400px'}}>
+                                <Card.Img style={{ width: '18rem', height: '400px'}} variant="top" src={category.image_url} />
                                 <Card.Body>
-                                    <Button className='btns ' style={{ width: '100%' }} variant='secondary'>  <Link to={`/courses/${category.id}`} className="link">{category.name} </Link></Button>
+                                <Button  style={{ width: '100%' }} variant="primary"><Link to={`/courses/${category.id}`} className='links'>{category.name} </Link></Button>
                                 </Card.Body>
                             </Card>
                         </Col>
+                        
                     </Row>
                 </p>)
             }

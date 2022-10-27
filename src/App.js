@@ -12,6 +12,7 @@ import Course from './Components/Course/Course';
 import Alldetails from './Components/AllDetails/Alldetails';
 import CourseDetails from './Components/CourseDetails/CourseDetails';
 import CoursesData from './Components/CoursesData/CoursesData';
+import Faq from './Components/Faq/Faq';
 
 function App() {
   const router = createBrowserRouter([
@@ -34,6 +35,11 @@ function App() {
         {
           path:'/course',
           element:<Course></Course>
+          
+        },
+        {
+          path:'/faq',
+          element:<Faq></Faq>
           
         },
         {

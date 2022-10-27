@@ -1,8 +1,9 @@
 
-.link{
+.links{
     text-decoration: none;
-    color: #20AD97;
+    color: #fff;
 }
-.btns{
-    background: #3f3a64;
+.links:hover{
+    color: #fff;
 }
+
