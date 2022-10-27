@@ -24,6 +24,7 @@ const AuthProvider = ({children}) => {
     };
 
         const providerLogin = (email,password) =>{
+            setLoading(true)
             return signInWithEmailAndPassword(auth,email,password)
         };
         const logout = () =>{
