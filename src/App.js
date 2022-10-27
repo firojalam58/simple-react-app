@@ -13,20 +13,18 @@ import Alldetails from './Components/AllDetails/Alldetails';
 import CourseDetails from './Components/CourseDetails/CourseDetails';
 import CoursesData from './Components/CoursesData/CoursesData';
 import Faq from './Components/Faq/Faq';
+import Error from './Components/Error/Error';
 
 function App() {
   const router = createBrowserRouter([
      {
       path:'/',
       element:<Main></Main>,
+      errorElement:<Error></Error>,
       children:[
         {
           path:'/',
           element:<Home></Home>
-        },
-        {
-          path:'/about',
-          element:<PrivateRoute><About></About></PrivateRoute>
         },
         {
           path:'/blog',

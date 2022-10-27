@@ -1,4 +1,5 @@
 import React from 'react';
+import { Container } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { useLoaderData } from 'react-router-dom';
@@ -8,10 +9,11 @@ const Alldetails = () => {
     const { title, details, image_url, } = cardDetails;
     return (
         <div>
+            <Container>
             <div>
                 <Download rootElementId="pageToDownload" downloadFileName="testPage"></Download>
             </div>
-            <div id='pageToDownload'>
+            <div className='mt-4 ' id='pageToDownload'>
             <Card style={{ width: '18rem' }}>
                     <Card.Img variant="top" src={image_url} />
                     <Card.Body>
@@ -26,6 +28,7 @@ const Alldetails = () => {
                     </Card.Body>
                 </Card>
             </div>
+            </Container>
         </div>
     );
 };

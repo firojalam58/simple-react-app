@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { Container } from 'react-bootstrap';
 
 const CoursesData = () => {
     const courseDetails = useLoaderData([]);
@@ -13,7 +14,8 @@ const CoursesData = () => {
 
 
 
-            <Card style={{ width: '20rem' }}>
+          <Container>
+          <Card style={{ width: '20rem' }}>
                 <Card.Img variant="top" src={image_url} />
                 <Card.Body>
                     <Card.Title>{title}</Card.Title>
@@ -33,6 +35,7 @@ const CoursesData = () => {
 
                 </Card.Body>
             </Card>
+          </Container>
         </div>
     );
 };

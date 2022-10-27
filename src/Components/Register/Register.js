@@ -4,9 +4,12 @@ import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 import Form from 'react-bootstrap/Form';
 import { AuthContext } from '../AuthProvider/AuthProvider';
+import { useNavigate } from 'react-router-dom';
 const Register = () => {
-  const {register, googleLogin, userUpdate} = useContext(AuthContext)
+  const {register, googleLogin, userUpdate, githubLogin} = useContext(AuthContext)
   
+    const navigate = useNavigate()
+
   const handleGoogle = () =>{
     googleLogin()
     .then ( () =>{})
@@ -46,7 +49,18 @@ const Register = () => {
     })
   }
 
-
+    const handleGithub =() =>{
+      githubLogin()
+      .then ( result =>{
+        const user = result.user
+        if(user){
+          navigate('/')
+          
+        }
+        console.log(user);
+      })
+    .catch ( error => console.error(error))
+    }
     return (
         <div className='w-50 m-auto'>
      <Form onSubmit={handleSubmit}>
@@ -72,7 +86,7 @@ const Register = () => {
         Submit
       </Button>
       <button onClick={handleGoogle} className='btn btn-success mx-5'><FaGoogle></FaGoogle> Google</button>
-      <button className='btn btn-success '><FaGithub></FaGithub> Github</button>
+      <button onClick={handleGithub} className='btn btn-success '><FaGithub></FaGithub> Github</button>
     </Form>
     <div>
         
