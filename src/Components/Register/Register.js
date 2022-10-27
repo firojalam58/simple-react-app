@@ -4,7 +4,7 @@ import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 import Form from 'react-bootstrap/Form';
 import { AuthContext } from '../AuthProvider/AuthProvider';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 const Register = () => {
   const {register, googleLogin, userUpdate, githubLogin} = useContext(AuthContext)
   
@@ -16,6 +16,17 @@ const Register = () => {
     .catch ( error => console.error(error))
   }
 
+  const handleGithub =() =>{
+    githubLogin()
+    .then ( result =>{
+      const user = result.user
+      if(user){
+        navigate('/')
+        
+      }
+    })
+  .catch ( error => console.error(error))
+  }
 
   const handleSubmit = event =>{
     event.preventDefault();
@@ -49,18 +60,6 @@ const Register = () => {
     })
   }
 
-    const handleGithub =() =>{
-      githubLogin()
-      .then ( result =>{
-        const user = result.user
-        if(user){
-          navigate('/')
-          
-        }
-        console.log(user);
-      })
-    .catch ( error => console.error(error))
-    }
     return (
         <div className='w-50 m-auto'>
      <Form onSubmit={handleSubmit}>
@@ -88,6 +87,7 @@ const Register = () => {
       <button onClick={handleGoogle} className='btn btn-success mx-5'><FaGoogle></FaGoogle> Google</button>
       <button onClick={handleGithub} className='btn btn-success '><FaGithub></FaGithub> Github</button>
     </Form>
+    <p className='mt-4'>AllReady Have an Account <Link to='/login'>Please Login</Link></p>
     <div>
         
     </div>

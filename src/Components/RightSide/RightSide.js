@@ -18,7 +18,7 @@ const RightSide = () => {
         <h2>Our Courses: {coursesList.length}Items</h2>
         <div className='row row-cols-lg-3 g-40'>
             {
-                coursesList.map(category => <p
+                coursesList.map(category => <h2
                     key={category.id}
 
                 >
@@ -34,7 +34,7 @@ const RightSide = () => {
                         </Col>
                         
                     </Row>
-                </p>)
+                </h2>)
             }
         </div>
     </div>

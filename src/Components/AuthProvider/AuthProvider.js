@@ -37,7 +37,7 @@ const AuthProvider = ({children}) => {
             return updateProfile(auth.currentUser,profile)
         };
         const githubLogin = () =>{
-            setLoading()
+            setLoading(true)
             return signInWithPopup(auth,githubProvider)
         }
         useEffect( ()=>{

@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 const Login = () => {
     const {providerLogin} = useContext(AuthContext)
@@ -48,6 +48,7 @@ const Login = () => {
         Submit
       </Button>
     </Form>
+    <p className='mt-4'>If you are new please <Link to='/register'>Create Account</Link></p>
   </div>
     );
 };
